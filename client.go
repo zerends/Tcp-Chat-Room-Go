@@ -12,7 +12,6 @@ type client struct {
 	nick     string
 	room     *room
 	commands chan<- command
-
 }
 
 func (c *client) readInput() {
@@ -21,7 +20,7 @@ func (c *client) readInput() {
 		if err != nil {
 			return
 		}
-
+		
 		msg = strings.Trim(msg, "\n\r")
 		args := strings.Split(msg, " ")
 		cmd := strings.TrimSpace(args[0])
@@ -64,19 +63,17 @@ func (c *client) readInput() {
 				args:   args,
 			}
 		default:
-			c.err(fmt.Errorf("yanlis komut: %s \n\r", cmd))
+			c.err(fmt.Errorf("yanlis komut: %s \n\r /help komutu ile komutları öğrenebilirsiniz.\n\r", cmd))
 		}
 	}
-
+	
 }
 
 func (c *client) err(err error) {
 	c.conn.Write([]byte("Eror: " + err.Error() + "\n"))
-	fmt.Println("")
 
 }
 func (c *client) msg(msg string) {
 	c.conn.Write([]byte("> " + msg + "\n\r"))
-	fmt.Println("")
 
 }

@@ -5,7 +5,6 @@ type commandID int
 const (
 	cmdNick commandID = iota
 	cmdJoin
-	cmdList
 	cmdRoom
 	cmdMsg
 	cmdQuit

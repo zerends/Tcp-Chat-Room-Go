@@ -13,7 +13,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("Server başlatılamadı: %s", err.Error())
 	}
-
 	defer listener.Close()
 	log.Printf("Server başlatıldı :5050")
 

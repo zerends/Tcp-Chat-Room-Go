@@ -48,6 +48,8 @@ func (s *server) newClient(conn net.Conn) *client {
 		commands: s.commands,
 	}
 
+	//fmt.Println("Hoş Geldiniz. /help komutu ile komutları öğrenebilirsiniz.")
+
 }
 
 func (s *server) nick(c *client, args []string) {
@@ -123,6 +125,6 @@ func (s *server) quitCurrentRoom(c *client) {
 
 func (s *server) help(c *client) {
 
-	c.msg(">Komutlar: \n\r: /<command> [arguments] \r\n *nick : Adını yaz.\r\n* join : odaya katıl.\r\n* msg  : mesaj gonder.\r\n* rooms : sohbet odalarini görmek için.\r\n* help : help list.\r\n* quit : cikis yap.\r\n")
+	c.msg(">Komutlar: \n\r *nick : Adini yaz.\r\n* join : odaya katil.\r\n* msg  : mesaj gonder.\r\n* rooms : sohbet odalarini görmek için.\r\n* help : help list.\r\n* quit : cikis yap.\r\n")
 
 }
