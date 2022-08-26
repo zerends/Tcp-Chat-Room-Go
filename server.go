@@ -32,7 +32,6 @@ func (s *server) run() {
 			s.msg(cmd.client, cmd.args)
 		case cmdQuit:
 			s.quit(cmd.client)
-
 		case cmdHelp:
 			s.help(cmd.client)
 		}
@@ -96,9 +95,9 @@ func (s *server) join(c *client, args []string) {
 }
 
 func (s *server) msg(c *client, args []string) {
-	if len(args) < 2 {
+	if len(args) < 1 {
 		c.msg("mesaj cok kisa yada yanlis kod kullandiniz, usage: /msg [Mesaj]")
-		fmt.Println("")
+		
 		return
 	}
 
@@ -125,6 +124,6 @@ func (s *server) quitCurrentRoom(c *client) {
 
 func (s *server) help(c *client) {
 
-	c.msg(">Komutlar: \n\r *nick : Adini yaz.\r\n* join : odaya katil.\r\n* msg  : mesaj gonder.\r\n* rooms : sohbet odalarini görmek için.\r\n* help : help list.\r\n* quit : cikis yap.\r\n")
+	c.msg(">Komutlar: \n\r* nick : Adini yaz.\r\n* join : odaya katil yada oda olustur.\r\n* msg  : mesaj gonder.\r\n* rooms : sohbet odalarini görmek için.\r\n* help : help list.\r\n* quit : cikis yap.\r\n")
 
 }
